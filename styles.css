@@ -1,0 +1,2561 @@
+@font-face {
+    font-family: Montserrat-Light;
+    src: url('https://raw.githubusercontent.com/patriciopereira/reminessencia/main/Montserrat-Light.ttf');
+}
+
+@font-face {
+    font-family: Montserrat-Regular;
+    src: url('https://raw.githubusercontent.com/patriciopereira/reminessencia/main/Montserrat-Regular.ttf');
+}
+
+@font-face {
+    font-family: Montserrat-Medium;
+    src: url('https://raw.githubusercontent.com/patriciopereira/reminessencia/main/Montserrat-Medium.ttf');
+}
+
+@font-face {
+    font-family: Montserrat-Semibold;
+    src: url('https://raw.githubusercontent.com/patriciopereira/reminessencia/main/Montserrat-SemiBold.ttf');
+}
+
+@font-face {
+    font-family: Montserrat-Bold;
+    src: url('https://raw.githubusercontent.com/patriciopereira/reminessencia/main/Montserrat-Bold.ttf');
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    overflow-x: hidden;
+    width: 99vw;
+}
+
+input:focus, select:focus, textarea:focus {
+    outline: none;
+}
+
+input[type="text"], [type="email"], [type="tel"], [type="number"], [type="submit"] {
+    box-sizing: border-box;
+}
+
+input[type="button"]:hover, input[type="submit"]:hover, button:hover {
+    cursor: pointer;
+}
+
+button, input[type="submit"], input[type="button"] { /* Formatação geral dos botões */
+    background-color: #000;
+    color: #fff;
+    height: 45px;
+    text-transform: uppercase;
+    font-family: Montserrat-Medium;
+    font-size: 13px;
+    border: none;
+}
+
+button.branco {
+    background-color: #fff;
+    border: 1px solid #000;
+    color: #000;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+h1 {
+    font-family: Montserrat-Light;
+    text-transform: uppercase;
+    font-weight: 100;
+    font-size: 40px;
+    margin-top: 0;
+}
+
+h2 {
+    font-family: Montserrat-Light;
+    text-transform: uppercase;
+    font-weight: 100;
+}
+
+h3 {
+    font-family: Montserrat-Semibold;
+    font-size: 14px;
+    text-transform: uppercase;
+    margin-bottom: 25px;
+}
+
+h4 {
+    font-family: Montserrat-Bold;
+    font-size: 13px;
+    text-transform: uppercase;
+    margin-bottom: 25px;
+    margin-top: 1px;
+    margin-bottom: 2px;
+}
+
+h5 {
+    font-family: Montserrat-Regular;
+    text-transform: uppercase;
+    font-size: 15px;
+    font-weight: 100;
+    margin-top: 45px;
+    margin-bottom: 10px;
+}
+
+p {
+    font-family: Montserrat-Regular;
+    font-size: 13px;
+}
+
+/* ------------------------------------------------ NAVBAR ------------------------------------------------ */
+/* GERAL */
+nav {
+    box-sizing: border-box;
+    width: 99vw;
+    height: 52px;
+    background-color: #fff;
+    padding: 0 11.5vw;
+    position: fixed;
+    display: flex;
+    flex-direction: row;
+    z-index: 3; /* Ficar à frente de tudo */
+    margin: 0 auto;
+    align-items: center;
+}
+
+.menu-icon, .reminessencia-logo, .acessibilidade {
+    flex: 1; /* Criar áreas iguais para cada caixa */
+    display: flex;
+    align-self: center;
+}
+
+.menu-icon {
+    justify-content: flex-start;
+}
+
+.reminessencia-logo {
+    justify-content: center;
+}
+
+.reminessencia-logo a {
+    height: 25px; /* altura do SVG com o logo; para ficar bem alinhados */
+}
+
+.acessibilidade {
+    justify-content: flex-end;
+}
+
+#hamburger-icon {
+    display: block;
+}
+
+#fechar-icon {
+    display: none;
+}
+
+#hamburger-icon:hover, #fechar-icon:hover, nav .icones #conta, nav .icones #wishlist,  nav .icones #cestoIcone {
+    cursor: pointer;
+}
+
+/* LADO DIREITO - ACESSIBILIDADE E ATALHOS */
+/* BARRA DE PESQUISA */
+.pesquisar {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+    margin-right: 2vw;
+}
+
+.lupa {
+    position: absolute;
+    margin-left: 5.5px;
+    margin-bottom: 2px;
+}
+
+.pesquisar input[type="text"] {
+    background-color: transparent;
+    border: none;
+    border-bottom: 1.4px solid #000;
+    width: 13vw;
+    padding: 5px 15px 5px 32px;
+    color: #000;
+    font-family: Montserrat-Regular;
+    font-size: 12px;
+}
+
+.pesquisar input[type="text"]::placeholder {
+    color: #3C3C3C;
+    font-family: Montserrat-Regular;
+    font-size: 12px;
+}
+
+.pesquisar input[type="text"]:focus {
+    border-bottom: 1.5px solid #000;
+}
+
+/* ÍCONES DOS ATALHOS */
+.acessibilidade .icones {
+    width: 85px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.acessibilidade .icones a, #cestoIcone {
+    display: flex;
+}
+
+nav .icones svg#conta:hover > g, nav .icones #wishlist:hover > g, nav .icones #cestoIcone:hover > svg g rect {
+    fill: #000;
+}
+
+#numeroItensCesto { /* Número de itens no cesto */
+    position: absolute;
+    text-align: center;
+    margin-left: 1px;
+    margin-top: 8px;
+    font-size: 12px;
+    width: 15px; /* Para o número ficar sempre centrado */
+}
+
+nav .icones #cestoIcone:hover > #numeroItensCesto {
+    color: #fff;
+}
+
+/* ------------------------------------------------ MENU ------------------------------------------------ */
+#menu {
+    display: none;
+    background-color: rgb(255 255 255 / 94%); /* Em RGB por causa da transparência */
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    padding: 65px 12vw 0 11.5vw;
+    z-index: 2;
+}
+
+#menu ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    width: 150px; /* Definir a largura para quando se clica fora deste campo se fechar o menu no JavaScript */
+}
+
+#menu a {
+    text-decoration: none;
+    color: #000;
+}
+
+#menu li.titulo {
+    text-transform: uppercase;
+    font-family: Montserrat-Semibold;
+    font-size: 12.5px;
+}
+
+#menu li.titulo.principal {
+    margin-top: 17px;
+    margin-bottom: 2px;
+}
+
+#menu .outras-paginas {
+    margin-top: 17px;
+}
+
+#menu .outras-paginas li.titulo {
+    margin-bottom: 4px;
+}
+
+#menu li.subpagina {
+    font-family: Montserrat-Regular;
+    font-size: 12.5px;
+}
+
+
+/* ------------------------------------------------ CESTO ------------------------------------------------ */
+#cesto {
+    background-color: rgb(0 0 0 / 20%); /* Em RGB por causa da transparência */
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    z-index: 3;
+    display: none;
+    justify-content: flex-end;
+}
+
+.cesto {
+    box-sizing: border-box;
+    background-color: #fff;
+    width: 26vw;
+    min-width: 350px; /* Tamanho mínimo fixo quando a largura de 26vw se torna muito pequena (responsividade/app) */
+    height: 100vh;
+    padding: 25px 2vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.cesto .topo, .cesto .topo div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.cesto .topo div {
+    width: 80px;
+}
+
+.cesto .topo h3 {
+    margin-bottom: 0;
+    margin-top: 3px;
+}
+
+.cesto .topo #fechar:hover, .cesto #cestoVazio button:hover, .cesto #cestoProdutos button:hover {
+    cursor: pointer;
+}
+
+/* ------------- CESTO VAZIO ------------- */
+.cesto #cestoVazio {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 55vh;
+}
+
+.cesto #cestoVazio p {
+    font-family: Montserrat-Bold;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.cesto #cestoVazio button, .cesto #cestoProdutos button {
+    width: 100%;
+}
+
+/* ------------- CESTO COM PRODUTOS ------------- */
+#cestoProdutos {
+    height: 88vh;
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+
+.produto-individual {
+    border-bottom: 1px solid #D6D6D6;
+    margin-bottom: 25px;
+    padding-bottom: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.produto-individual img {
+    width: 6.2vw;
+    height: 6.2vw;
+    min-width: 90px;
+    min-height: 90px;
+}
+
+.produto-individual .informacoes-produto {
+    display: flex;
+    flex-direction: column; 
+    justify-content: space-between;
+    width: 15vw;
+    min-width: 220px;
+}
+
+.produto-individual .informacoes-produto .nome-tipo-produto p {
+    margin-top: 2px;
+    font-size: 13.5px;
+}
+
+.produto-individual .informacoes-produto .preco-remover p {
+    font-family: Montserrat-Semibold;
+    font-size: 15.5px;
+    margin-top: 1px;
+    margin-bottom: 1px;
+}
+
+.produto-individual .informacoes-produto .interatividade-produto {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.produto-individual .informacoes-produto .preco-remover {
+    height: 45px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+
+.interatividade-produto .quantidade {
+    display: flex;
+    flex-direction: row;
+    width: 50px;
+    justify-content: space-between;
+}
+
+.interatividade-produto .quantidade input[type="number"] {
+    border: none;
+    padding: 0 5px;
+    margin: 0 0;
+    text-align: center;
+    font-family: Montserrat-Regular;
+    font-size: 15.5px;
+    width: 35px;
+    height: 20px;
+    -moz-appearance: textfield; /* Remover setas do campo de input no Firefox */
+}
+
+input::-webkit-outer-spin-button, input::-webkit-inner-spin-button { /* Remover setas do campo de input nos outros browsers */
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.interatividade-produto .quantidade .botaoQuantidade {
+    height: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.interatividade-produto .quantidade .botaoQuantidade:hover, .interatividade-produto .removerIcone:hover {
+    cursor: pointer;
+}
+
+.interatividade-produto .quantidade .botaoQuantidade:hover > svg path {
+    stroke-width: 0.5;
+}
+
+/* Rodapé do resumo do cesto */
+#cestoProdutos .resumo-cesto {
+    display: flex;
+    flex-direction: column;
+}
+
+#cestoProdutos .resumo-cesto .informacoes {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+#cestoProdutos .resumo-cesto .informacoes .totalCesto {
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    align-content: flex-end;
+}
+
+#cestoProdutos .resumo-cesto .informacoes .totalCesto p.total{
+    color: #9B9B9B;
+    margin-bottom: 5px;
+}
+
+#cestoProdutos .resumo-cesto .informacoes .totalCesto p#totalCestoPreco {
+    font-family: Montserrat-Semibold;
+    color: #000;
+    font-size: 16px;
+    margin-top: 0;
+}
+
+/* ------------------------------------------------ POPUP PRODUTO ADICIONADO AO CESTO ------------------------------------------------ */
+.adicionado-cesto {
+    background-color: rgb(0 0 0 / 20%); /* Em RGB por causa da transparência */
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    z-index: 3;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.adicionado-cesto .popup {
+    box-sizing: border-box;
+    background-color: #fff;
+    width: 48vw;
+    padding: 3vw 3vw;
+    margin-bottom: 100px;
+}
+
+.adicionado-cesto .popup .titulo, .adicionado-cesto .popup .produto, .adicionado-cesto .popup .botoes {
+    display: flex;
+    flex-direction: row;
+}
+
+.adicionado-cesto .popup .produto .informacoes {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-left: 15px;
+    height: 6.2vw; /* a mesma altura da imagem */
+    min-height: 90px;
+}
+
+.adicionado-cesto .popup .titulo, .adicionado-cesto .popup .botoes {
+    justify-content: space-between;
+    margin: auto;
+}
+
+.adicionado-cesto .popup .titulo h2 {
+    margin-top: 0;
+    font-size: 30px;
+}
+
+.adicionado-cesto .popup .produto img {
+    width: 6.2vw;
+    height: 6.2vw;
+    min-width: 90px;
+    min-height: 90px;
+}
+
+.adicionado-cesto .popup .produto .nome-tipo h4 {
+    margin-bottom: 2px;
+}
+
+.adicionado-cesto .popup .produto .nome-tipo p {
+    margin-top: 2px;
+}
+
+.adicionado-cesto .popup .produto .quantidade-preco p {
+    margin-top: 0;
+    margin-bottom: 2px;
+}
+
+.adicionado-cesto .popup .produto .quantidade-preco h3 {
+    margin-top: 2px;
+    margin-bottom: 0;
+}
+
+.adicionado-cesto .popup .botoes button {
+    width: 49%;
+    height: 45px;
+    margin-top: 40px;
+}
+
+.adicionado-cesto .popup .titulo svg:hover, .adicionado-cesto .popup .botoes button:hover {
+    cursor: pointer;
+}
+
+
+/* ------------------------------------------------ RODAPE ------------------------------------------------ */
+footer {
+    display: flex;
+    flex-direction: column;
+    width: 76vw;
+    margin: auto;
+    padding: 0;
+    margin-top: 8vw;
+    border-top: 1px solid #000;
+    padding-top: 2vw;
+    justify-content: space-between;
+}
+
+footer .mapa-site {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+footer .divisao {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+}
+
+footer .divisao#newsletter {
+    flex: 1.6;
+}
+
+footer .divisao#blank {
+    flex: 1.3;
+}
+
+footer .divisao#app {
+    flex: 1.5;
+}
+
+footer .divisao ul {
+    padding-left: 0;
+    padding-right: 2vw;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+footer .divisao ul li {
+    list-style-type: none;
+}
+
+footer .divisao ul li a {
+    text-decoration: none;
+    color: #000;
+}
+
+footer .divisao ul li.subpagina a:hover {
+    text-decoration: underline;
+}
+
+footer .divisao ul li.titulo {
+    text-transform: uppercase;
+    font-family: Montserrat-Semibold;
+    font-size: 12px;
+    margin-top: 19px;
+    margin-bottom: 5px;
+}
+
+footer .divisao ul li.subpagina {
+    font-family: Montserrat-Regular;
+    font-size: 12px;
+}
+
+footer .divisao input[type="email"] {
+    width: 100%; /* Em % para ficar com a largura do contentor/divisao */
+    height: 35px;
+    border: 1px solid #000;
+    color: #000;
+    font-family: Montserrat-Medium;
+    font-size: 12px;
+    padding: 3px 0.9vw;
+    margin-top: 13px;
+}
+
+footer .divisao input[type="email"]::placeholder {
+    color: #000;
+    font-family: Montserrat-Medium;
+    font-size: 11px;
+    text-transform: uppercase;
+}
+
+footer .divisao input[type="email"]:focus {
+    border: 2px solid #000;
+}
+
+footer .divisao ul li.subpagina button {
+    visibility: hidden;
+    background-color: #9B9B9B; /* Com esta cor em vez de preto por causa da transição no script/JS */
+    color: #fff;
+    height: 40px;
+    width: 100%;
+    padding: 6px 1.5vw;
+    border: none;
+    text-transform: uppercase;
+    font-family: Montserrat-Medium;
+    font-size: 12px;
+    margin-top: 8px;
+}
+
+footer .divisao ul li.subpagina button:hover {
+    cursor: pointer;
+}
+
+footer .divisao ul li.subpagina button:active {
+    background-color: #9B9B9B;
+}
+
+footer .divisao ul li.subpagina img {
+    width: 50%;
+}
+
+footer .divisao ul li.subpagina img:hover {
+    cursor: pointer;
+}
+
+footer p {
+    text-align: center;
+    font-size: 11px;
+    margin-top: 35px;
+    margin-bottom: 25px;
+}
+
+footer p span {
+    font-family: Montserrat-Semibold;
+}
+
+/* ------------------------------------------------ PRODUTO PREVIEW ------------------------------------------------ */
+.produto {
+    width: 18.1vw;
+}
+
+.produto .imagem {
+    width: 18.1vw;
+    display: flex;
+}
+
+.produto .imagem img {
+    width: 18.1vw;
+    display: block;
+}
+
+.imagem .adicionadoWishlist {
+    position: relative;
+    z-index: 1;/* Certificar que fica acima da imagem */
+    margin-left: -2.9vw;
+    margin-top: 2vw;
+    height: 20px;
+}
+
+.imagem-produtos-hover {
+    opacity: 0;
+    position: relative;
+    width: 18.1vw;
+    height: 18.1vw;
+    margin-left: -18.1vw;
+    display: flex;
+    align-items: flex-end;
+}
+
+.imagem-produtos-hover a {
+    z-index: 0;
+    position: relative;
+    width: 18.1vw;
+    height: 18.1vw;
+    margin-right: -18.1vw;
+}
+
+.imagem-produtos-hover:hover {
+    opacity: 100%;
+}
+
+.produto button {
+    background-color: #000;
+    color: #fff;
+    width: 16.1vw;
+    height: 45px;
+    display: block;
+    text-transform: uppercase;
+    font-family: Montserrat-Medium;
+    font-size: 13px;
+    border: none;
+    margin-bottom: 1vw;
+    position: relative;
+    z-index: 1; /* Para ficar acima do link da imagem */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.produto button:hover, .imagem .adicionadoWishlist:hover {
+    cursor: pointer;
+}
+
+.produto button:active, section.newsletter input[type="button"]:active {
+    background-color: #9B9B9B;
+}
+
+.produto .texto p.nome {
+    font-family: Montserrat-Regular;
+    font-size: 13px;
+    margin-bottom: 2px;
+    color: #000;
+    cursor: pointer;
+}
+
+.produto .texto p.nome:hover {
+    text-decoration: underline;
+}
+
+.produto .texto p.preco {
+    font-family: Montserrat-Semibold;
+    font-size: 17px;
+    margin-top: 5px;
+    color: #000;
+}
+
+/* --------------------------------------------------- pagina PRODUTO INDIVIDUAL --------------------------------------------- */
+.cabecalho-largo#produto {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.imagem-produto {
+    width: 50vw;
+}
+
+.imagem-produto img {
+    width: 50vw;
+}
+
+.produto-infos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 20.4vw;
+}
+
+.produto-infos .topo {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.produto-infos .topo h4 {
+    font-size: 16px;
+}
+
+.produto-infos p#ingredientes {
+    margin-top: 2px;
+    font-size: 12px;
+}
+
+.produto-infos p#preco {
+    font-family: Montserrat-Semibold;
+    font-size: 20px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+
+.produto-infos button {
+    width: 100%;
+    margin-top: 15px;
+}
+
+.produto-infos .topico {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.produto-infos .topico .titulo {
+    padding: 15px 8px;
+}
+
+.produto-infos .topico .icone-titulo h2 {
+    font-size: 15px;
+    text-transform: none;
+    font-family: Montserrat-Regular;
+    margin: 0 0 0 0;
+}
+
+/* ------------------------------------------------ pagina HOME ------------------------------------------------ */
+/* ------------ CONTEUDO ----------- */
+.colecao-banner {
+    padding-top: 50px; /* Altura do menu */
+}
+
+.colecao-banner img {
+    width: 76vw;
+    display: block;
+    margin: auto;
+}
+
+/* ------------- SECÇÃO NOVA COLEÇAO HOME ----------------------- */
+section#colecao-produtos {
+    display: block;
+    margin: 80px auto;
+    width: 76vw;
+}
+
+section#colecao-produtos .slide {
+    width: 82vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: -3vw;
+}
+
+section#colecao-produtos .slide .seta {
+    margin-bottom: 3.5vw;
+}
+
+section#colecao-produtos .slide .seta svg:hover {
+    cursor: pointer;
+}
+
+section#colecao-produtos .slide .seta svg:hover > path {
+    stroke: #000;
+}
+
+section#colecao-produtos .galeria {
+    display: flex;
+    flex-direction: row;
+    width: 76vw;
+    overflow-x: hidden;
+}
+
+.galeria .produto {
+    margin-right: 1.2vw;
+}
+
+
+/* ---------- SECÇÃO NEWSLETTER ------------------------- */
+section.newsletter {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    padding: 0 10vw;
+}
+
+section.newsletter h3 {
+    margin-bottom: 0;
+}
+
+section.newsletter .subscricao {
+    width: 34.5vw;
+    display: flex;
+    margin: auto;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+section.newsletter input[type="email"] {
+    width: 25vw;
+    height: 49px;
+    border: 1px solid #000;
+    color: #000;
+    font-family: Montserrat-Medium;
+    font-size: 14px;
+    padding: 6px 1.5vw;
+}
+
+section.newsletter input[type="email"]::placeholder {
+    color: #000;
+    font-family: Montserrat-Medium;
+    font-size: 13px;
+    text-transform: uppercase;
+}
+
+section.newsletter input[type="email"]:focus {
+    border: 2px solid #000;
+}
+
+section.newsletter input[type="button"] {
+    background-color: #000;
+    color: #fff;
+    height: 49px;
+    padding: 6px 1.5vw;
+    border: none;
+    text-transform: uppercase;
+    font-family: Montserrat-Medium;
+    font-size: 13px;
+}
+
+/* ------------------------------------------------ pagina CESTO DE COMPRAS ------------------------------------------------ */
+.cabecalho, .pagina-cesto-conteudo {
+    display: flex;
+    width: 69vw;
+    margin: auto;
+}
+
+.cabecalho {
+    padding-top: 80px;
+}
+
+h4#qtdProdsCesto {
+    margin-bottom: 15px;
+}
+
+.pagina-cesto-conteudo {
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.pagina-cesto-conteudo .lista-produtos {
+    width: 42vw; /* largura do resumo dos produtos do cesto */
+}
+
+.pagina-cesto-conteudo .resumo-cesto, .resumo table, .resumo [type="submit"] {
+    width: 21vw; /* largura do resumo dos valores dos precos */
+}
+
+.pagina-cesto-conteudo .lista-produtos .informacoes-produto {
+    width: 83%;
+    margin-left: 9px;
+}
+
+.pagina-cesto-conteudo .lista-produtos .informacoes-produto .nome-remover {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.nome-remover svg.removerIcone:hover {
+    cursor: pointer;
+}
+
+.pagina-cesto-conteudo .lista-produtos .informacoes-produto .preco-remover {
+    height: auto;
+}
+
+.pagina-cesto-conteudo .resumo-cesto .resumo .detalhes {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.pagina-cesto-conteudo .resumo-cesto .resumo input[type="text"]{
+    border: none;
+    background-color: #F5F5F5;
+    color: #000;
+    width: 65%;
+    height: 37px;
+    font-family: Montserrat-Regular;
+    font-size: 12px;
+    padding: 5px 15px;
+}
+
+.resumo-cesto .resumo input[type="text"]:focus {
+    border: 1px solid #9B9B9B;
+}
+
+.pagina-cesto-conteudo .resumo-cesto .resumo input[type="button"].branco {
+    background-color: #fff;
+    color: #000;
+    border: 1px solid #000;
+    width: 32%;
+    min-width: 98px;
+    height: 37px;
+    font-family: Montserrat-Medium;
+    font-size: 12px;
+    padding: 5px 12px;
+    text-transform: uppercase;
+}
+
+.pagina-cesto-conteudo .resumo-cesto .resumo input[type="button"].branco:hover {
+    background-color: black;
+    color: #fff;
+}
+
+.resumo table.subtotais {
+    border-top: 1px solid #D6D6D6;
+    border-bottom: 1px solid #D6D6D6;
+    padding-top: 11px;
+    padding-bottom: 11px;
+}
+
+.resumo table th {
+    text-align: left;
+    text-transform: uppercase;
+    font-family: Montserrat-Regular;
+    font-weight: 100;
+    font-size: 16px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+}
+
+.resumo table td {
+    text-align: right;
+    font-family: Montserrat-Semibold;
+    font-weight: 100;
+    font-size: 15px;
+}
+
+.resumo table.subtotais th, .resumo table.subtotais td {
+    font-size: 12.5px;
+}
+
+p#iva {
+    text-align: right;
+    font-size: 11px;
+}
+
+.pagina-cesto-conteudo .resumo-cesto .outras-infos {
+    margin-top: 20px;
+}
+
+.pagina-cesto-conteudo .resumo-cesto .outras-infos h4 {
+    margin-bottom: 9px;
+}
+
+.pagina-cesto-conteudo .resumo-cesto .outras-infos p {
+    margin-top: 0px;
+    font-size: 12px;
+}
+
+.pagina-cesto-conteudo .resumo-cesto .outras-infos .imagens {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 240px;
+}
+
+.pagina-cesto-conteudo .resumo-cesto .outras-infos .metodo-pagamento-img {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 5px;
+}
+
+.pagina-cesto-conteudo .resumo-cesto .outras-infos .metodo-pagamento-img img {
+    height: 40px;
+}
+
+.metodo-pagamento-img img#visa {
+    height: 20px;
+}
+
+/* ------ CESTO VAZIO --s---- */
+#cestoOverviewVazio {
+    width: 69vw;
+    display: none;
+    flex-direction: column;
+    margin: auto;
+    text-align: center;
+    align-items: center;
+}
+
+#cestoOverviewVazio button {
+    width: 250px;
+    display: block;
+    margin: 15px auto;
+}
+
+#cestoOverviewVazio button:hover {
+    cursor: pointer;
+}
+
+/* ----------------------------------------------------------- pagina CHECKOUT ---------------------------------------- */
+.passos-checkout {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+/* Cabeçalho */
+.passos-checkout .passo {
+    width: 50%;
+    text-align: center;
+    text-transform: uppercase;
+    border-bottom: 1px solid #9B9B9B;
+}
+
+.passos-checkout .passo.atual {
+    border-bottom: 3.5px solid #000;
+}
+
+.passos-checkout .passo.atual p {
+    font-family: Montserrat-Semibold;
+}
+
+/* Caixa com cados da encomenda + Resumo da encomenda */
+.checkout-conteudo {
+    width: 76vw;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+/* Lado direito - Dados da encomenda */
+.dados-encomenda {
+    width: 44.5vw;
+}
+
+.dados-encomenda .checkout-dados {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+form input[type="submit"]#submeter {
+    background-color: #9B9B9B;
+    cursor: default;
+}
+
+/* --------- Moradas --------- */
+.moradas {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.moradas .morada {
+    width: 45%;
+}
+
+.moradas .morada p {
+    margin: 2px 0;
+}
+
+.moradas .morada p.semibold { /* Nome da pessoa da morada */
+    font-family: Montserrat-Semibold;
+}
+
+.dados-encomenda .checkout-dados#morada button { /* Botão de alterar moradas */
+    height: 40px;
+    cursor: pointer;
+}
+
+/* --------- Método de envio e de pagamento  --------- */
+.metodos .opcao { 
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 1.5vw;
+}
+
+/* ----- Métodos de pagamento ------- */
+.metodos {
+    display: flex;
+    flex-direction: column;
+}
+
+.metodos label {
+    box-sizing: border-box;
+    margin: 7px 0;
+    background-color: #F5F5F5;
+    z-index: 1;
+}
+
+.metodos .metodo {
+    height: 65px;
+    padding: 5px 1.5vw;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.metodos .metodo input[type="radio"] {
+    margin: 0 12px 0 0;
+    width: 25px;
+    height: 25px;
+}
+
+.metodos label .metodo p {
+    font-family: Montserrat-Medium;
+    font-size: 14px;
+}
+
+.metodos .opcao img { /* Imagem nos métodos de pagamento */
+    height: 40px;
+}
+
+/* ----- MÉTODOS DE PAGAMENTO DETALHES ---- */
+.detalhes-metodoPagamentoEscolhido {
+    border: 1px solid #000;
+    padding: 20px 3vw;
+    display: none;
+    flex-direction: column;
+    margin-top: -10px; /* Para ficar colado à opção do método de pagamento */
+    z-index: 0 /* Para ficar abaixo da opção e não se ver a linha */
+}
+
+.detalhes-metodoPagamentoEscolhido .linha {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 35.1vw;
+}
+
+.detalhes-metodoPagamentoEscolhido .linha#gravar {
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.detalhes-metodoPagamentoEscolhido .linha#gravar input[type="checkbox"] {
+    margin: 0 8px 0 0;
+    width: 15px;
+    height: 15px;
+}
+
+.detalhes-metodoPagamentoEscolhido .linha#gravar label, .detalhes-metodoPagamentoEscolhido p {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-family: Montserrat-Regular;
+    font-size: 12.5px;
+}
+
+.detalhes-metodoPagamentoEscolhido p span {
+    font-family: Montserrat-Semibold;
+    text-transform: uppercase;
+}
+
+.detalhes-metodoPagamentoEscolhido .campo label#cor, .detalhes-metodoPagamentoEscolhido .linha label#cor{
+    background-color: transparent;
+}
+
+.detalhes-metodoPagamentoEscolhido .campo input {
+    flex: 0.95;
+}
+
+.detalhes-metodoPagamentoEscolhido .campo input#numeroCartao, .detalhes-metodoPagamentoEscolhido .campo input#titular {
+    flex: 0.7;
+}
+
+.detalhes-metodoPagamentoEscolhido .campo input#numeroTelPagamento {
+    flex: 0.5;
+}
+
+/* --------- Método de Envio -------- */
+p.precoPortes {
+    font-family: Montserrat-Medium;
+    font-size: 14px;
+}
+
+.dados-encomenda input[type="submit"] { /* Botão de continuar */
+    width: 100%;
+}
+
+/* -------- Resumo da encomenda -------- */
+.resumo-produtos p#resumoQtdCesto {
+    font-size: 12.5px;
+}
+
+.resumo-encomenda {
+    background-color: #F5F5F5;
+    padding: 45px 2vw;
+    width: auto;
+    height: 0%; /* A 0 para não estender a altura de acordo com a dos outros elementos da flexbox*/
+}
+
+.resumo-encomenda table {
+    width: 18vw;
+    min-width: 180px;
+}
+
+.resumo-encomenda .resumo table.subtotais {
+    border-top: none;
+}
+
+.resumo-encomenda .resumo h4 {
+    font-family: Montserrat-Semibold;
+}
+
+.resumo-produtos .produto {
+    display: flex;
+    flex-direction: row;
+    border-bottom: 1px solid #D6D6D6;
+    padding-bottom: 20px;
+}
+
+.resumo-produtos .produto img {
+    width: 6.2vw;
+    height: 6.2vw;
+    min-width: 90px;
+    min-height: 90px;
+    margin-right: 12px;
+}
+
+.resumo-produtos .produto .informacoes {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.resumo-produtos .produto .nome-tipo h4 {
+    margin-bottom: 2px;
+}
+
+.resumo-produtos .produto .nome-tipo p {
+    margin-top: 2px;
+}
+
+.resumo-produtos .produto .quantidade-preco {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.resumo-produtos .produto .quantidade-preco p {
+    margin-top: 0;
+    margin-bottom: 2px;
+}
+
+.resumo-produtos .produto .quantidade-preco h3 {
+    margin-top: 2px;
+    margin-bottom: 0;
+}
+
+/* --------------------------------- POPUP ALTERACAO MORADA --------------------------------- */
+#alterar-moradas {
+    background-color: rgb(0 0 0 / 20%); /* Em RGB por causa da transparência */
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    z-index: 3;
+    display: none;
+    align-items: flex-start;
+    padding-top: 50px;
+    justify-content: center;
+}
+
+#alterar-moradas .popup {
+    background-color: #fff;
+    box-sizing: border-box;
+    width: 71vw;
+    padding: 3.2vw;
+}
+
+#alterar-moradas h2 { /* Titúlo MORADAS */
+    margin-top: 0;
+    margin-bottom: 35px;
+}
+
+#alterar-moradas svg { /* X de fechar */
+    cursor: pointer;
+}
+
+#alterar-moradas .linha, #alterar-moradas .linha .morada .linha-dados {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#alterar-moradas .linha .morada {
+    width: 49%;
+}
+
+#alterar-moradas .linha .morada h5 {
+    margin-top: 0;
+}
+
+#alterar-moradas .linha .morada .linha-dados .campo {
+    width: 48%;
+}
+
+#alterar-moradas .linha .morada .metodos label { /* Radio options da morada de faturação */
+    height: 35px;
+}
+
+#alterar-moradas .linha .morada .metodos input[type="radio"] { /* Tamanho dos radio buttons */
+    width: 16px;
+    height: 16px;
+}
+
+#alterar-moradas .linha.botoes { /* linha com os botões */
+    justify-content: center;
+}
+
+#alterar-moradas .linha.botoes button, #alterar-moradas .linha.botoes input[type="submit"] {
+    width: 23.5%;
+    margin: 20px 1% 0 1%;
+}
+
+/* ------------------------------------------------ pagina OVERVIEW ENCOMENDA --------------------------------------- */
+form.overview {
+    margin: auto;
+}
+
+form.overview h5 {
+    margin-top: 25px;
+}
+
+.overview h4#avisoConfirmacao {
+    text-align: center;
+    background-color: #F5F5F5;
+    border: 1px solid #000;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 25px;
+}
+
+/* Tabela com o RESUMO DA ENCOMENDA */
+table.overview-resumo-encomenda {
+    border-collapse: collapse;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+table.overview-resumo-encomenda tr.header {
+    background-color: #F5F5F5;
+    height: 38px;
+    padding: 8px;
+}
+
+table.overview-resumo-encomenda tr.header th {
+    font-family: Montserrat-Regular;
+    font-weight: 100;
+    text-transform: uppercase;
+    font-size: 13px;
+    text-align: center;
+}
+
+table.overview-resumo-encomenda td {
+    text-align: center;
+    font-family: Montserrat-Regular;
+    font-size: 13px;
+}
+
+table.overview-resumo-encomenda td#preco {
+    font-family: Montserrat-Semibold;
+} 
+
+/* Listagem de produtos no resumo */
+table.overview-resumo-encomenda tr.produto-margem td {
+    padding: 16px 0;
+}
+
+table.overview-resumo-encomenda .produto {
+    display: flex;
+    flex-direction: row;
+}
+
+table.overview-resumo-encomenda .produto img {
+    width: 6.5vw;
+    height: 6.5vw;
+    min-width: 90px;
+    min-height: 90px;
+    margin-right: 12px;
+}
+
+table.overview-resumo-encomenda .produto .nome-tipo {
+    text-align: left; /* Para fazer overwrite sobre o alinhamento de texto dos td */
+}
+
+table.overview-resumo-encomenda .produto .nome-tipo h4 {
+    margin-bottom: 2px;
+}
+
+table.overview-resumo-encomenda .produto .nome-tipo p {
+    margin-top: 2px;
+}
+
+table tr.totais td {
+    text-align: right;
+    background-color: #F5F5F5;
+    padding: 3px;
+}
+
+table tr.totais td.semibold {
+    font-family: Montserrat-Semibold;
+    padding-right: 25px;
+}
+
+table tr.totais#margem-topo td {
+    padding-top: 28px;
+}
+
+table tr.totais#margem-fundo td {
+    padding-bottom: 28px;
+}
+
+form.overview .linha {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+form.overview .linha button, form.overview .linha input[type="submit"] {
+    width: 49%;
+    margin-top: 17px;
+}
+
+/* ------------------------------------------------ pagina ENCOMENDA REGISTADA ------------------------------------------------ */
+.encomenda-registada {
+    display: flex;
+    width: 32vw;
+    min-width: 450px;
+    margin: auto;
+    flex-direction: column;
+    padding-top: 90px;
+}
+
+.encomenda-registada .aviso {
+    border: 1px solid #000;
+    width: 100%;
+    text-align: center;
+    box-sizing: border-box;
+    padding: 3.5vw 2.5vw;
+}
+
+.encomenda-registada .aviso h4 {
+    margin-top: 18px;
+}
+
+.encomenda-registada .aviso h5 {
+    margin-top: 5px;
+    font-family: Montserrat-Light;
+}
+
+.encomenda-registada .botoes {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.encomenda-registada button {
+    margin-top: 25px;
+    width: 49.2%;
+}
+
+.encomenda-registada button:hover {
+    background-color: #000;
+    color: #fff;
+}
+
+/* Se o método de pagamento escolhido tiver sido o multibanco */
+#pagamento-por-multibanco {
+    margin-top: 35px;
+    text-align: left;
+    display: none;
+}
+
+#pagamento-por-multibanco p {
+    font-size: 12px;
+    margin-bottom: 20px;
+}
+
+#pagamento-por-multibanco table {
+    border-collapse: collapse;
+    background-color: #F5F5F5;
+    width: 100%;
+    font-family: Montserrat-Regular;
+    font-size: 13px;
+}
+
+#pagamento-por-multibanco table tr#margem-topo th, #pagamento-por-multibanco table tr#margem-topo td {
+    padding-top: 20px;
+}
+
+#pagamento-por-multibanco table tr#margem-fundo th, #pagamento-por-multibanco table tr#margem-fundo td {
+    width: 50%;
+    padding-bottom: 20px;
+}
+
+#pagamento-por-multibanco table th {
+    text-align: right;
+    font-family: Montserrat-Semibold;
+    font-weight: 100;
+    padding: 3px 2px;
+}
+
+#pagamento-por-multibanco table td {
+    padding-left: 3px 2px;
+}
+
+/* ------------------------------------------------ pagina PRODUTOS ------------------------------------------------ */
+.cabecalho-largo {
+    flex-direction: column;
+    display: flex;
+    width: 76vw;
+    margin: auto;
+    padding-top: 80px;
+}
+
+.cabecalho-largo h1 {
+    margin-bottom: 14px;
+}
+
+.cabecalho-largo .filtragem {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+    padding-bottom: 26px;
+}
+
+.filtragem ul {
+    padding: 0 0;
+    width: 390px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0 0;
+}
+
+.filtragem ul li {
+    list-style-type: none;
+    font-family: Montserrat-Regular;
+    text-transform: uppercase;
+    font-size: 12px;
+    text-align: center;   
+}
+
+.filtragem ul li:hover {
+    font-family: Montserrat-Semibold;   
+}
+
+.filtragem ul li a {
+    color: #000;
+}
+
+.filtragem ul li.atual {
+    font-family: Montserrat-Semibold;
+    border-bottom: 1px solid #000;
+}
+
+.filtragem .filtrar-ordenar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 420px;
+}
+
+.filtragem .filtrar-ordenar .filtrar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.filtragem .filtrar-ordenar .filtrar svg {
+    margin-right: 8px;
+}
+
+.filtragem .filtrar-ordenar h4 {
+    margin: 0 0;
+    font-family: Montserrat-Semibold;
+}
+
+.filtragem .filtrar-ordenar .ordenar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.filtragem .filtrar-ordenar .ordenar label {
+    font-family: Montserrat-Regular;
+    text-transform: uppercase;
+    font-size: 13px;
+    margin-right: 13px;
+}
+
+select {
+    background-color: #F5F5F5;
+    border: none;
+    font-family: Montserrat-Regular;
+    height: 45px;
+    box-sizing: border-box;
+    padding: 10px 17px;
+}
+
+select option {
+    background-color: #fff;
+}
+
+select:active {
+    background-color: #F0EFEF;
+}
+
+select:hover {
+    cursor: pointer;
+}
+
+.produtos-exibicao {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 76vw;
+    margin: auto;
+}
+
+
+/* ------------------------------------------------ pagina FRAGRANCIAS ------------------------------------------------ */
+.fragrancias-cards {
+    display: flex;
+    flex-direction: row;
+    width: 76vw;
+    margin: auto;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.fragrancias-cards .card {
+    background-color: #F5F5F5;
+    display: flex;
+    align-items: flex-end;
+    box-sizing: border-box;
+    width: 37vw;
+    justify-content: space-between;
+    padding: 1.3vw 2.5vw;
+    height: 18vw;
+    margin-bottom: 25px;
+}
+
+.fragrancias-cards .card:hover {
+    cursor: pointer;
+}
+
+.fragrancias-cards .card p {
+    font-family: Montserrat-Medium;
+    text-transform: uppercase;
+    font-size: 20px;
+}
+
+.fragrancias-cards .card img {
+    width: 15vw;
+}
+
+/* ------------------------------------------------ pagina LOGIN REGISTO ------------------------------------------------ */
+.popup.login-registo {
+    padding-top: 145px;
+}
+
+/* ------------------------------------------------ pagina CONTA ----------------------------------------------------- */
+/* Navegação */
+.navegacao {
+    position: fixed;
+    padding-top: 52px; /* Altura do menu de topo */
+    width: 76vw;
+    display: flex;
+    flex-direction: column;
+    margin: 0 11.5vw;
+    z-index: 1;
+}
+
+/* Navegação topo (página e terminar sessão) */
+.navegacao .topo {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #9B9B9B;
+    background-color: #fff;
+}
+
+.navegacao .topo h2 {
+    margin-bottom: 8px;
+    font-size: 20px;
+}
+
+.navegacao .topo h4 {
+    font-size: 12.5px;
+    margin-top: 22px;
+    font-family: Montserrat-Semibold;
+    cursor: pointer;
+}
+
+/* Navegação páginas laterais */
+.navegacao .lateral {
+    width: 125px;
+    background-color: #fff;
+}
+
+.navegacao .lateral ul {
+    width: 125px; /* A 0 para forçar a não ficar automaticamente a 100%, por ser flex item */
+    list-style-type: none;
+    padding-left: 0;
+    font-family: Montserrat-Regular;
+    font-size: 12.5px;
+    text-transform: uppercase;
+}
+
+.navegacao .lateral ul li {
+    padding: 5px 0;
+}
+
+.navegacao .lateral ul li.atual {
+    font-family: Montserrat-Semibold;
+    border-bottom: 1px solid #000;
+}
+
+/* --------- Conteúdo da página --------- */
+.conta-conteudos {
+    width: 43vw;
+    padding-top: 110px;
+    margin: auto;
+    padding-right: 12vw;
+    padding-left: 4vw;
+}
+
+/* GERAL */
+.conta-conteudos h2#eliminar {
+    margin-bottom: 0;
+}
+
+.conta-conteudos .contentor-dados {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 50px;
+    box-sizing: border-box
+}
+
+.conta-conteudos .contentor-dados .conteudo {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+/* Dados Pessoais */
+.conta-conteudos .contentor-dados .conteudo .imagem-perfil img {
+    width: 120px;
+    margin-right: 20px;
+    display: block;
+}
+
+.conta-conteudos .contentor-dados .conteudo .dados {
+    flex-direction: column;
+    width: 100%;
+    margin-top: 0;
+}
+
+.conta-conteudos .contentor-dados .conteudo .dados .linha {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.conta-conteudos .contentor-dados .conteudo .dados button, .conta-conteudos .contentor-dados .conteudo .dados input[type="button"] {
+    width: 100%;
+    margin-top: 15px;
+}
+
+/* Dados de acesso */
+.conta-conteudos .contentor-dados .conteudo#dadosAcesso {
+    background-color: #F5F5F5;
+    box-sizing: border-box;
+    padding: 25px;
+}
+
+.conta-conteudos .contentor-dados .conteudo#dadosAcesso .dados {
+    width: 48%;
+}
+
+.conta-conteudos .contentor-dados .conteudo#dadosAcesso h3 {
+    margin-top: 0;
+    margin-bottom: 22px;
+}
+
+.conta-conteudos .contentor-dados .conteudo#dadosAcesso input {
+    background-color: transparent;
+}
+
+.conta-conteudos .contentor-dados .conteudo#dadosAcesso .dados p {
+    font-family: Montserrat-Medium;
+    font-size: 12px;
+}
+
+.conta-conteudos .contentor-dados .conteudo#dadosAcesso .dados p span {
+    font-family: Montserrat-Semibold;
+}
+
+/* Requisitos palavra-passe */
+.conta-conteudos .contentor-dados .conteudo#dadosAcesso ul {
+    padding-left: 0;
+    list-style-type: none;
+    font-family: Montserrat-Regular;
+    font-size: 11px;
+}
+
+.conta-conteudos .contentor-dados .conteudo#dadosAcesso ul li {
+    margin: 2px 0;
+    color: #9B9B9B;
+}
+
+.conta-conteudos .contentor-dados .conteudo#dadosAcesso ul li.titulo {
+    font-family: Montserrat-Semibold;
+    color: #000;
+}
+/* ----- */
+
+.conta-conteudos .contentor-dados .conteudo#dadosAcesso .dados .campo, .conta-conteudos .campo#individual {
+    width: 100%;
+}
+
+/* Botão eliminar conta */
+.conta-conteudos .contentor-dados button.branco {
+    width: 47%;
+}
+
+/* -------- Popup de confirmação de eliminação de conta --------  */
+#popup-confirmacao-destruicao {
+    display: none;
+    background-color: rgb(0 0 0 / 20%); /* Em RGB por causa da transparência */
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    z-index: 3;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+#popup-confirmacao-destruicao .popup {
+    background-color: #fff;
+    box-sizing: border-box;
+    width: 40vw;
+    min-width: 410px;
+    margin: 120px auto 0 auto;
+    padding: 4.5vw 4.5vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+#popup-confirmacao-destruicao button.fundo {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    background-color: transparent;
+    z-index: -1;
+}
+
+#popup-confirmacao-destruicao .popup .botoes {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+#popup-confirmacao-destruicao .popup .botoes input[type="submit"], #popup-confirmacao-destruicao .popup button {
+    height: 45px;
+    width: 47%;
+}
+
+#popup-confirmacao-destruicao .popup .fechar {
+    width: 108%;
+    display: flex;
+    justify-content: flex-end;
+    margin-top: -40px;
+}
+
+#popup-confirmacao-destruicao .popup .fechar button {
+    width: 0%;
+    background-color: transparent;
+}
+
+/* ------------------------------------------------ pagina ENCOMENDAS ----------------------------------------------------- */
+.conta-conteudos .contentor-dados .cabecalho {
+    padding-top: 0;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+}
+
+/* Contentor da overview/resumo da encomenda */
+.encomenda-individual {
+    border: 4px solid #F5F5F5;
+    padding-bottom: 15px;
+    margin: 15px 0;
+}
+
+.contentor-dados .topo {
+    background-color: #F5F5F5;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 15px;
+}
+
+.contentor-dados .topo table th {
+    font-family: Montserrat-Regular;
+    text-transform: uppercase;
+    font-weight: 100;
+    font-size: 12.5px;
+    text-align: left;
+    margin-bottom: 0;
+    padding-top: 8px;
+}
+
+.contentor-dados .topo table td {
+    font-family: Montserrat-Semibold;
+    font-size: 12.5px;
+    text-align: left;
+    margin-top: 0;
+    padding-bottom: 8px;
+}
+
+.contentor-dados .topo table th.total, .contentor-dados .topo table td#totalResumo {
+    padding-left: 25px;
+}
+
+.contentor-dados .topo p {
+    text-transform: uppercase;
+    font-size: 12.5px;
+    text-align: right;
+    margin-bottom: 5px;
+}
+
+.contentor-dados .topo p#numeroProdutos {
+    margin-top: 4px;
+    margin-bottom: 15px;
+    font-size: 11px;
+    text-transform: none;
+}
+
+.contentor-dados .topo p span {
+    font-family: Montserrat-Semibold;
+}
+
+/* Estado da encomenda */
+.contentor-dados .estado-encomenda {
+    margin: 0 15px 7px 15px;
+    padding: 0 2px;
+    border-bottom: 1px solid #D6D6D6;
+    text-transform: uppercase;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}   
+
+.contentor-dados .estado-encomenda svg {
+    margin-right: 7px;
+}
+
+/* Resumo da encomenda */
+.encomenda-individual .encomenda-resumo {
+    padding: 0 15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+/* Produto */
+.encomenda-individual .encomenda-resumo table .produto {
+    display: flex;
+    flex-direction: row;
+    margin: 7px 0;
+    width: 100%;
+}
+
+.encomenda-individual .encomenda-resumo table .produto img {
+    width: 6.5vw;
+    height: 6.5vw;
+    min-width: 90px;
+    min-height: 90px;
+    margin-right: 12px;
+}
+
+.encomenda-individual .encomenda-resumo table .produto h4 {
+    margin-bottom: 2px;
+}
+
+.encomenda-individual .encomenda-resumo table .produto p {
+    margin-top: 2px;
+}
+
+.encomenda-individual .encomenda-resumo table .produto p span {
+    font-family: Montserrat-Semibold;
+}
+
+.encomenda-individual .encomenda-resumo .morada-entrega {
+    display: flex;
+    flex-direction: column;
+    width: 37%;
+    margin-top: 7px;
+}
+
+.encomenda-individual .encomenda-resumo .morada-entrega h4 {
+    margin-bottom: 10px;
+    font-family: Montserrat-Semibold;
+    font-size: 12.5px;
+}
+
+.encomenda-individual .encomenda-resumo .morada-entrega p {
+    margin: 1px 0;
+    font-size: 12.5px;
+}
+
+.encomenda-individual .encomenda-resumo .morada-entrega button {
+    width: 100%;
+    margin-top: 10px;
+    height: 42px;
+}
+
+.encomenda-individual .encomenda-resumo .morada-entrega button:hover {
+    background-color: #000;
+    color: #fff;
+}
+
+/* ------------------------------------------ pagina DETALHES ENCOMENDAS -------------------------------------------------- */
+
+
+/* ------------------------------------------------ pagina WISHLIST ----------------------------------------------------- */
+.cabecalho-largo#wishlist {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.cabecalho-largo#wishlist .filtrar-ordenar {
+    width: 304px;
+}
+
+/* ------------------------------------------------ pagina WORKSHOPS ------------------------------------------------ */
+.cabecalho-estreito {
+    flex-direction: column;
+    display: flex;
+    width: 55vw;
+    margin: auto;
+    padding-top: 80px;
+}
+
+.cabecalho-estreito h1 {
+    margin-bottom: 14px;
+}
+
+.workshop-cards {
+    display: flex;
+    flex-direction: row;
+    width: 55vw;
+    margin: auto;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.workshop-cards a {
+    width: 48%;
+}
+
+.workshop-cards .card {
+    box-sizing: border-box;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.workshop-cards .card img {
+    width: 100%;
+}
+
+.workshop-cards .card .texto {
+    box-sizing: border-box;
+    border-bottom: 1px solid #000;
+    border-left: 1px solid #000;
+    border-right: 1px solid #000;
+    padding: 2vw;
+}
+
+.workshop-cards .card .texto h4 {
+    font-size: 15px;
+}
+
+.workshop-cards .card .texto p {
+    margin-top: 4px;
+    margin-bottom: 4px;
+    font-size: 15px;
+}
+
+p#light {
+    font-family: Montserrat-Light;
+    text-transform: uppercase;
+}
+
+
+/* -------------------------------------------- pagina WORKSHOP DETALHES -------------------------------------------- */
+/* Informações gerais */
+.workshop-detalhes {
+    width: 55vw;
+    display: flex;
+    margin: auto;
+    flex-direction: column;
+}
+
+.workshop-detalhes h3,.workshop-detalhes p#light {
+    margin-top: 0;
+    margin-bottom: 5px;
+}
+
+.workshop-detalhes .topo {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 40px;
+    align-items: flex-start;
+}
+
+.workshop-detalhes .topo p {
+    width: 95%;
+}
+
+.workshop-detalhes .topo img {
+    width: 20vw;
+}
+
+.workshop-detalhes .informacao1#margem {
+    margin-bottom: 40px;
+}
+
+.workshop-detalhes .informacao1 ul {
+    padding-left: 18px;
+    font-family: Montserrat-Regular;
+    font-size: 13px;
+    margin-bottom: 0;
+}
+
+.workshop-detalhes .informacao2 {
+    display: flex;
+    flex-direction: row;
+    align-content: flex-start;
+}
+
+.workshop-detalhes .informacao2 p {
+    margin-top: 0;
+    font-size: 14px;
+    margin-left: 5px;
+}
+
+/* Fomrulário de inscrição */
+form#inscricao {
+    display: flex;
+    flex-direction: column;
+}
+
+form#inscricao .dados-inscricao {
+    margin-bottom: 20px;
+}
+
+form#inscricao .dados {
+    margin-bottom: 25px;
+}
+
+form#inscricao input[type="button"] {
+    background-color: #000;
+    color: #fff;
+    height: 38px;
+    text-transform: uppercase;
+    font-family: Montserrat-Medium;
+    font-size: 13px;
+    border: none;
+}
+
+form#inscricao .dados {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+/* Campos do formulário GERAL */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+.dados {
+    margin-top: 15px;
+    display: flex;
+}
+
+.campo {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.campo input{ /* Campos */
+    position: relative;
+    transition: all 0.3s ease-out;
+    box-sizing: border-box;
+    border: none;
+    border-bottom: 1px solid #000;
+    width: 17vw;
+    height: 35px;
+    font-family: Montserrat-Medium;
+    font-size: 15px;
+    padding: 3px 0;
+    margin-top: 10px;
+    margin-bottom: 25px;
+    flex: 1;
+}
+
+.campo input:hover, .campo input:focus {
+    border-bottom: 2px solid #000;
+    transition: all 0.3s ease-out;
+}
+
+.campo label { /* Nome do campo */
+    font-family: Montserrat-Regular;
+    text-transform: uppercase;
+    font-size: 14px;
+    pointer-events: none;
+    position: absolute;
+    transition: all 0.3s ease-out;
+    margin-top: 18px;
+}
+
+.campo input:focus + label, .campo input:not(:placeholder-shown) + label { /* Animação do nome do campo */
+    font-size: 10px;
+    margin-top: 0;
+    color: #000;
+}
+
+/* --------------------------------------------------- pagina SOBRE NÓS --------------------------------------------- */
+.informacao1#margem-topo {
+    margin-top: 45px;
+}
+
+form#contacteNos .dados {
+    justify-content: space-between;
+}
+
+form#contacteNos .dados .campo {
+    flex: 0.28;
+}
+
+form#contacteNos .campo select {
+    width: 17vw;
+    background-color: #fff;
+    padding: 0 0;
+    height: 35px;
+    font-family: Montserrat-Medium;
+    font-size: 15px;
+    margin-top: 10px;
+    margin-bottom: 25px;
+    flex: 1;
+    transition: all 0.3s ease-out;
+    border: 1px solid white; /* se estiver none não funciona em alguns browsers */
+    border-right: 2px solid #fff;
+    border-bottom: 1px solid #000;
+}
+
+form#contacteNos .campo select:focus {
+    border-bottom: 2px solid #000;
+}
+
+.campo label#assunto {
+    font-size: 10px;
+    margin-top: 0;
+    color: #000;
+}
+
+form#contacteNos label#mensagem {
+    font-family: Montserrat-Regular;
+    text-transform: uppercase;
+    font-size: 14px;
+    margin-top: 8px;
+}
+
+form#contacteNos textarea {
+    border: 1px solid #000;
+    font-family: Montserrat-Regular;
+    font-size: 14px;
+    box-sizing: border-box;
+    padding: 18px;
+    margin-top: 12px;
+    resize: none;
+    height: 250px;
+    transition: border .3s ease;
+}
+
+form#contacteNos textarea:focus {
+    border: 3px solid #000;
+}
+
+form#contacteNos textarea::placeholder {
+    font-family: Montserrat-Medium;
+    font-size: 15px;
+    color: #9B9B9B;
+}
+
+form#contacteNos input[type="button"] {
+    background-color: #000;
+    color: #fff;
+    height: 38px;
+    text-transform: uppercase;
+    font-family: Montserrat-Medium;
+    font-size: 13px;
+    border: none;
+    margin-top: 12px;
+    width: 30%;
+    align-self: flex-end;
+}
+
+/* ------- Popup de confirmação de mensagem enviada ------- */
+#mensagem-enviada {
+    background-color: rgb(0 0 0 / 20%); /* Em RGB por causa da transparência */
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    z-index: 3;
+    display: none;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+#mensagem-enviada button.fundo {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    z-index: -1;
+    background-color: transparent;
+}
+
+#mensagem-enviada .popup {
+    background-color: #fff;
+    box-sizing: border-box;
+    width: 37vw;
+    min-width: 410px;
+    margin: 90px auto 0 auto;
+    padding: 3.5vw 4.5vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#mensagem-enviada .popup .fechar {
+    width: 110%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+#mensagem-enviada .popup .fechar button {
+    background-color: transparent;
+    height: 0%;
+}
+
+#mensagem-enviada .popup h4 {
+    margin-top: 25px;
+}
+
+#mensagem-enviada .popup h5 {
+    margin-top: 5px;
+    font-size: 14px;
+}
+
+#mensagem-enviada .popup input[type="submit"] {
+    width: 100%;
+    margin-top: 10px;
+}
+
+
+/* ----------------------------------------------------------- pagina AJUDA ---------------------------------------- */
+.topico .titulo {
+    border-bottom: 1px solid #000;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 15px;
+    margin: 10px 0;
+}
+
+.topico .titulo:hover {
+    cursor: pointer;
+}
+
+.topico .titulo .icone-titulo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.topico .titulo h2 {
+    margin: 6px 0 7px 8px;
+}
+
+.topico .informacoes-expand {
+    display: none;
+    margin: 25px 15px 40px 15px;
+}
+
+.topico .informacoes-expand p, .topico .informacoes-expand ul li {
+    font-size: 13.5px;
+}
+
+.topico .informacoes-expand p#lista {
+    margin-bottom: 2px;
+}
+
+.topico .informacoes-expand ul {
+    padding-left: 15px;
+    margin-top: 0;
+}
+
+.topico .informacoes-expand ul li {
+    font-family: Montserrat-Regular;
+}
+
+.topico .informacoes-expand ul li span {
+    font-family: Montserrat-Medium;
+}
+
+
