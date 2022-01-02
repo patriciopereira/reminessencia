@@ -1,4 +1,4 @@
-# reminessencia
+# Reminessência
 
 Projeto para Programação Web II da licenciatura de Comunicação e Design Multimédia da ESEC.
 
@@ -10,6 +10,6 @@ Website de loja em HTML, CSS e JavaScript que deveria:
 5. Conter uma wishlist;
 6. Ter uma versão mobile separada da versão web (não responsive).
 
-Dados para login:
-E-mail: reminessencia@email.com
+Dados para login: <br>
+E-mail: reminessencia@email.com <br>
 Password: 123
