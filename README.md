@@ -1,5 +1,7 @@
 # Reminessência
 
+<strong>`Reminessencia_Home.html` do branch `Website` é a homepage do website</strong><br>
+
 Projeto para Programação Web II da licenciatura de Comunicação e Design Multimédia da ESEC.
 
 Website de loja em HTML, CSS e JavaScript que deveria:
